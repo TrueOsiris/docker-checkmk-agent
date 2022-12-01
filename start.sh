@@ -23,12 +23,12 @@ if [ -z $x ]; then
 	echo "}" >> $x
 fi
 echo "agentpackage source = $ap"
-if [ -z "/install_packages/agentpackage.deb" ]; then
-	curl $ap -o /install_packages/agentpackage.deb
+if [ ! -e "/install_packages/agentpackage.deb" ]; then
+	curl -v "$ap" -o "/install_packages/agentpackage.deb"
 fi
 echo "installed = $i"
 if [ $i == "FALSE" ]; then
 	dpkg -i /install_packages/agentpackage.deb
 fi
-
-/usr/sbin/xinetd -filelog /var/log/xinetd2.log -stayalive
+service xinetd start 2>&1
+#/usr/sbin/xinetd -filelog /var/log/xinetd2.log -stayalive

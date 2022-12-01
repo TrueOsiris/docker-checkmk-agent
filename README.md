@@ -22,6 +22,7 @@ WIP - attempting to get host data via docker container
 
 | Volume | example host location |
 | ------ | --------------------- |
+| /var/run/docker.sock | /var/run/docker.sock |
 | /install_packages | /path/on/host/checkmk_container/install_packages |
 | /usr/lib/check_mk_agent | /path/on/host/checkmk_container/usr/lib/check_mk_agent |
 | /etc/check_mk | /path/on/host/checkmk_container/etc/check_mk |
