@@ -30,5 +30,5 @@ echo "installed = $i"
 if [ $i == "FALSE" ]; then
 	dpkg -i /install_packages/agentpackage.deb
 fi
-service xinetd start 2>&1
-#/usr/sbin/xinetd -filelog /var/log/xinetd2.log -stayalive
+#service xinetd start 2>&1
+/usr/sbin/xinetd -filelog /var/log/xinetd2.log -stayalive
