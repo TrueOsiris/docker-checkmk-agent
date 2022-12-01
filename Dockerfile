@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 LABEL name="checkmk-agent" \
       maintainer="Trueosiris" 
 ENV TZ="Europe/Brussels"
-ENV AGENTPACKAGE="https://checkmk.timmer.ninja/download_agent.py?hash=05833099304e914e&os=linux_deb"
+ENV AGENTPACKAGE="https://checkmk.timmer.ninja/agents/check-mk-agent_2.1.0p2-1_all.deb"
 ENV INSTALLED="FALSE"
 VOLUME ["/install_packages", "plugins", "/etc/xinetd.d"]
 ARG DEBIAN_FRONTEND="noninteractive"
@@ -13,7 +13,6 @@ RUN apt update -y && \
     apt-get install -y  software-properties-common \
                         tzdata \ 
 			xinetd \
-			wget \
 			curl \
 			python2.7 \
 			python3 && \
