@@ -9,8 +9,10 @@ VOLUME ["/install_packages", "/usr/lib/check_mk_agent", "/etc/check_mk", "/etc/x
 ARG DEBIAN_FRONTEND="noninteractive"
 RUN apt update -y && \
     apt-get upgrade -y && \
-    apt-get install -y  apt-utils && \
-    apt-get install -y  software-properties-common \
+    apt-get install -y  apt-utils \
+      			software-properties-common \
+			net-tools \
+			iproute2 \
                         tzdata \ 
 			xinetd \
 			curl \
